@@ -44,4 +44,24 @@ class Solution {
 
         return new int[]{};
     }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> groupings = new HashMap<>();
+
+        for (String str : strs){
+            char[] strArray = str.toCharArray();
+            Arrays.sort(strArray);
+
+            String sortedString = new String(strArray);
+
+            if (!groupings.containsKey(sortedString)){
+                groupings.put(sortedString, new ArrayList<>());
+            }
+
+            groupings.get(sortedString).add(str);
+        }
+
+        return new ArrayList<>(groupings.values());
+    }
+
 }
