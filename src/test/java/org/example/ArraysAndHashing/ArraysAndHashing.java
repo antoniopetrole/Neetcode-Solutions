@@ -18,4 +18,11 @@ public class ArraysAndHashing {
         assertArrayEquals(solution.topKFrequent(nums, top), new int[]{4,1});
 
     }
+
+    @Test
+    public void productExceptSelf(){
+        Solution solution = new Solution();
+
+        assertArrayEquals(solution.productExceptSelf(new int[]{1,2,3,4}),new int[]{24,12,8,6});
+    }
 }
