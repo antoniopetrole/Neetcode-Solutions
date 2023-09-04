@@ -1,8 +1,12 @@
 package org.example.ArraysAndHashing;
 
-import java.util.*;
+import com.sun.source.tree.Tree;
 
-class Solution {
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Solution {
     // Originally tried to brute force by listing through the arrays twice but the time complexity was O(n^2) so I ended
     // up using a hashset for constant time operations
     public boolean containsDuplicate(int[] nums) {
@@ -64,4 +68,25 @@ class Solution {
         return new ArrayList<>(groupings.values());
     }
 
+    public int[] topKFrequent(int[] nums, int k) {
+
+        Map<Integer, Integer> buckets = new TreeMap<>();
+
+        for (int i : nums){
+            buckets.merge(i, 1, Integer::sum);
+        }
+
+        List<Integer> resultList = buckets.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        int[] resultArray = new int[k];
+
+        for (int i = 0; i < k; i++){
+            resultArray[i] = resultList.get(resultList.size() - 1 - i);
+        }
+
+        return resultArray;
+    }
 }
