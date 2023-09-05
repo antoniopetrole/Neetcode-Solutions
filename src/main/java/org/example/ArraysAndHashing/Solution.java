@@ -110,4 +110,17 @@ public class Solution {
 
         return result;
     }
+
+    public boolean isValidSudoku(char[][] board) {
+        Set<Integer> seen = new HashSet<>();
+        for (int g = 1; g < 4; g++) { // this is meant to be a multiplier for each grid
+            int grid = 3 * g;
+            for (int x = grid - 3; x < grid; x++) {
+                for (int y = grid - 3; y < grid; y++) {
+                    System.out.print(board[x][y]);
+                }
+            }
+        }
+        return true;
+        }
 }
