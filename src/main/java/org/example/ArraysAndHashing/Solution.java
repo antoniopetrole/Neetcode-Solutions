@@ -127,9 +127,11 @@ public class Solution {
         }
 
     public int longestConsecutive(int[] nums) {
+        // Unfinished Solution
         if (nums.length == 0){
             return 0;
         }
+
         // Using sort automatically makes it not 0(n), going to revisit this when it's not 10pm :D
         // I should implement with a hashmap instead
         Arrays.sort(nums);
@@ -147,5 +149,18 @@ public class Solution {
             }
         }
         return longestSequence;
+    }
+
+    public int[] twoSumII(int[] numbers, int target) {
+        int lPointer = 0;
+        int rPointer = numbers.length - 1;
+        while(numbers[lPointer] + numbers[rPointer] != target){
+            if (numbers[lPointer] + numbers[rPointer] < target){
+                lPointer++;
+            } else {
+                rPointer--;
+            }
+        }
+        return new int[]{lPointer + 1, rPointer + 1};
     }
 }
