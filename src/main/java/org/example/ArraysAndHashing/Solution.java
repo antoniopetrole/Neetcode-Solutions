@@ -112,15 +112,40 @@ public class Solution {
     }
 
     public boolean isValidSudoku(char[][] board) {
+        // This solution isn't finished yet
         Set<Integer> seen = new HashSet<>();
         for (int g = 1; g < 4; g++) { // this is meant to be a multiplier for each grid
             int grid = 3 * g;
-            for (int x = grid - 3; x < grid; x++) {
-                for (int y = grid - 3; y < grid; y++) {
-                    System.out.print(board[x][y]);
+            for (int row = grid - 3; row < grid; row++) {
+                for (int col = grid - 3; col < grid; col++) {
+                    System.out.print(board[row][col]);
                 }
+                System.out.println("");
             }
         }
         return true;
         }
+
+    public int longestConsecutive(int[] nums) {
+        if (nums.length == 0){
+            return 0;
+        }
+        // Using sort automatically makes it not 0(n), going to revisit this when it's not 10pm :D
+        // I should implement with a hashmap instead
+        Arrays.sort(nums);
+
+        int longestSequence = 1;
+        int currentSequence = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i - 1] == nums[i] - 1) {
+                currentSequence++;
+                if (currentSequence > longestSequence) {
+                    longestSequence = currentSequence;
+                }
+            } else {
+                currentSequence = 1;
+            }
+        }
+        return longestSequence;
+    }
 }
