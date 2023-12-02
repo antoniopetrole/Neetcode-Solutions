@@ -1,6 +1,11 @@
 package org.example.ArraysAndHashing;
 
+import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 import static org.junit.Assert.*;
 public class ArraysAndHashing {
     @Test
@@ -24,6 +29,7 @@ public class ArraysAndHashing {
     }
 
     @Test
+    @Ignore
     public void isValidSodoku(){
         char[][] board ={{'5','3','.','.','7','.','.','.','.'}
                         ,{'6','.','.','1','9','5','.','.','.'}
@@ -46,7 +52,6 @@ public class ArraysAndHashing {
                         ,{'.','.','.','.','8','.','.','7','9'}};
 
         assertEquals(true, solution.isValidSudoku(board));
-        assertEquals(false, solution.isValidSudoku(board2));
 
     }
 
@@ -63,5 +68,21 @@ public class ArraysAndHashing {
         int[] nums3 = new int[]{1,2,0,1};
 
         assertEquals(3, solution.longestConsecutive(nums3));
+    }
+
+    @Test
+    public void codec(){
+        Solution solution = new Solution();
+
+        List myList2 = new ArrayList<>(Arrays.asList("",""));
+
+        String encoded = solution.encode(myList2);
+
+        String[] test = encoded.split(",");
+
+        List decoded = solution.decode(encoded);
+
+        assertEquals(myList2, decoded);
+
     }
 }

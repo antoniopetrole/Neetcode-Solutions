@@ -114,53 +114,74 @@ public class Solution {
     public boolean isValidSudoku(char[][] board) {
         // This solution isn't finished yet
         Set<Integer> seen = new HashSet<>();
-        for (int g = 1; g < 4; g++) { // this is meant to be a multiplier for each grid
-            int grid = 3 * g;
-            for (int row = grid - 3; row < grid; row++) {
-                for (int col = grid - 3; col < grid; col++) {
-                    System.out.print(board[row][col]);
+//        for (int g = 1; g < 4; g++) { // this is meant to be a multiplier for each grid
+//            int grid = 3 * g;
+//            for (int row = grid - 3; row < grid; row++) {
+//                for (int col = grid - 3; col < grid; col++) {
+//                    System.out.print(board[row][col]);
+//                }
+//                System.out.println("");
+//            }
+//        }
+//        return true;
+
+        for (int grid = 0; grid < 3; grid++) {
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    if (col / 3 == grid && row / 3 == grid){
+                        System.out.print(board[row][col]);
+                    }
                 }
                 System.out.println("");
             }
         }
-        return true;
-        }
+        return false;
+    }
 
     public int longestConsecutive(int[] nums) {
-        // Unfinished Solution
-        if (nums.length == 0){
-            return 0;
-        }
 
-        // Using sort automatically makes it not 0(n), going to revisit this when it's not 10pm :D
-        // I should implement with a hashmap instead
-        Arrays.sort(nums);
+        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
-        int longestSequence = 1;
-        int currentSequence = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i - 1] == nums[i] - 1) {
-                currentSequence++;
-                if (currentSequence > longestSequence) {
-                    longestSequence = currentSequence;
+        int longest = 0;
+
+        for (int num : nums){
+            if (!set.contains(num - 1)){
+                int length = 0;
+                while (set.contains(num+length)){
+                    length += 1;
                 }
-            } else {
-                currentSequence = 1;
+
+                longest = Math.max(length, longest);
             }
         }
-        return longestSequence;
+
+        return longest;
     }
 
-    public int[] twoSumII(int[] numbers, int target) {
-        int lPointer = 0;
-        int rPointer = numbers.length - 1;
-        while(numbers[lPointer] + numbers[rPointer] != target){
-            if (numbers[lPointer] + numbers[rPointer] < target){
-                lPointer++;
+    // Encodes a list of strings to a single string.
+    public String encode(List<String> strs) {
+        String result = "";
+
+        for (String string : strs){
+            result += string + "\t\b";
+        }
+
+        return result;
+    }
+
+    // Decodes a single string to a list of strings.
+    public List<String> decode(String s) {
+        List result = new ArrayList();
+        String[] split = s.split("\b");
+
+        for (String splitString : split){
+            if (splitString.equals("\t")){
+                result.add("");
             } else {
-                rPointer--;
+                result.add(splitString.replace("\t",""));
             }
         }
-        return new int[]{lPointer + 1, rPointer + 1};
+        return result;
     }
+
 }
