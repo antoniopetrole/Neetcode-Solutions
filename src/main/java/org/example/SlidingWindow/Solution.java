@@ -37,11 +37,11 @@ public class Solution {
                 substring += s.charAt(r);
                 r++;
             } else {
-                length = Math.max(substring.length(), length);
                 l++;
                 r = l + 1;
                 substring = s.charAt(l) + "";
             }
+            length = Math.max(substring.length(), length);
         }
         return length;
     }
