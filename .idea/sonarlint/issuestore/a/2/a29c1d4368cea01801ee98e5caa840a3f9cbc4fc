@@ -1,0 +1,27 @@
+
+F
+java:S3740®"/Provide the parametrized type for this generic.(ïÙ×ä
+F
+java:S3740®"/Provide the parametrized type for this generic.(ïÙ×ä
+8
+java:S1643¦"Use a StringBuilder instead.(ÃÚ”ûÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰í­‡ùÿÿÿÿ
+^
+java:S3824="HReplace this "Map.containsKey()" with a call to "Map.computeIfAbsent()".(²¼À·
+X
+java:S1854&"=Remove this useless assignment to local variable "resultSet".(’´­×ûÿÿÿÿ
+I
+java:S1481&".Remove this unused "resultSet" local variable.(’´­×ûÿÿÿÿ
+h
+java:S6204R"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+N
+java:S1854t"8Remove this useless assignment to local variable "seen".(ÙÙõ‘
+?
+java:S1481t")Remove this unused "seen" local variable.(ÙÙõ‘
+V	java:S125u"<This block of commented-out lines of code should be removed.(ïÀÍ»ûÿÿÿÿ
+F	java:S106„"+Replace this use of System.out by a logger.(ûùªÂÿÿÿÿÿ
+F	java:S106‡"+Replace this use of System.out by a logger.(ŞÒ—üÿÿÿÿ
+P
+java:S1128"5Remove this unused import 'com.sun.source.tree.Tree'.(·óƒüıÿÿÿÿ
+N
+java:S1128"8Remove this unused import 'java.util.function.Function'.(»³Í
