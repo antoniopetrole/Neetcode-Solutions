@@ -1,5 +1,6 @@
 package org.example.DSA;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class TestBinarySearchTree {
 
@@ -15,7 +16,28 @@ public class TestBinarySearchTree {
         binarySearchTree.insert(12);
         binarySearchTree.insert(8);
         System.out.println("Blah");
+    }
 
+    @Test
+    public void remove(){
+        BinarySearchTree expectedBinarySearchTree = new BinarySearchTree();
+        expectedBinarySearchTree.insert(5);
+        expectedBinarySearchTree.insert(10);
+        expectedBinarySearchTree.insert(3);
+
+        BinarySearchTree resultBinarySearchTree = new BinarySearchTree();
+        resultBinarySearchTree.insert(5);
+        resultBinarySearchTree.insert(9);
+        resultBinarySearchTree.insert(10);
+        resultBinarySearchTree.insert(3);
+        resultBinarySearchTree.insert(2);
+
+        resultBinarySearchTree.remove(9);
+        resultBinarySearchTree.remove(2);
+
+        // This test will fail until I implement a correct equals operator, however the current implementation works
+        // via manually comparing both objects
+        assertEquals(expectedBinarySearchTree, resultBinarySearchTree);
     }
 
 }
