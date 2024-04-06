@@ -1,14 +1,6 @@
 package org.example.DSA;
 
-import java.nio.file.Path;
-import java.util.Objects;
-
 public class BinarySearchTree {
-    // TODO change interfaces for this class
-    // TreeNode is public? I know we can pass a Treenode to the constructor currently but this seems wrong (breaks encapsulation)
-    // findMinimumNode is public which definitely seems wrong. I set it public to test it but I guess I should only test
-    // public interfaces in a real implementation
-
     // TODO implement generics, equals, and hashcode functions
     TreeNode root;
 
@@ -24,7 +16,7 @@ public class BinarySearchTree {
         root = insertRecursive(root, val);
     }
 
-    public TreeNode insertRecursive(TreeNode current, int val) {
+    private TreeNode insertRecursive(TreeNode current, int val) {
         // base case
         if (current == null){
             return new TreeNode(val);
@@ -53,7 +45,7 @@ public class BinarySearchTree {
         removeRecurs(root, val);
     }
 
-    public TreeNode removeRecurs(TreeNode root, int val){
+    private TreeNode removeRecurs(TreeNode root, int val){
         // if no children, set parent to point in same direction as null
         // if 1 child, parent now points at child of node to remove
         // if 2 children, replace node to remove with either left or right
@@ -83,7 +75,7 @@ public class BinarySearchTree {
 
     }
 
-    public class TreeNode{
+    private class TreeNode{
         int val;
         TreeNode left;
         TreeNode right;
