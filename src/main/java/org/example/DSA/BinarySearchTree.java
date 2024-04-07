@@ -1,7 +1,9 @@
 package org.example.DSA;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class BinarySearchTree {
     // TODO implement generics, equals, and hashcode functions
@@ -94,6 +96,27 @@ public class BinarySearchTree {
         inOrderGetallValuesRecurs(result, current.left);
         result.add(current.val);
         inOrderGetallValuesRecurs(result, current.right);
+        return result;
+    }
+
+    public List<Integer> preOrderGetAllValues(){
+        List<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+
+        if (root != null){
+            queue.add(root);
+        }
+
+        while (!queue.isEmpty()){
+            TreeNode current = queue.remove();
+            if (current.left != null){
+                queue.add(current.left);
+            }
+            if (current.right != null){
+                queue.add(current.right);
+            }
+            result.add(current.val);
+        }
         return result;
     }
 

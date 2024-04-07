@@ -60,4 +60,19 @@ public class TestBinarySearchTree {
         assertEquals(expectedResult,binarySearchTree.inOrderGetAllValues());
     }
 
+    @Test
+    public void preOrderTraversal() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(18);
+        binarySearchTree.insert(12);
+        binarySearchTree.insert(455);
+        binarySearchTree.insert(454);
+
+        List<Integer> expectedResult = List.of(10,5,18,1,12,455,454);
+        assertEquals(expectedResult,binarySearchTree.preOrderGetAllValues());
+    }
+
 }
