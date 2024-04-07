@@ -1,5 +1,9 @@
 package org.example.DSA;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class TestBinarySearchTree {
@@ -38,6 +42,22 @@ public class TestBinarySearchTree {
         // This test will fail until I implement a correct equals operator, however the current implementation works
         // via manually comparing both objects
         assertEquals(expectedBinarySearchTree, resultBinarySearchTree);
+    }
+
+    @Test
+    public void inOrderTraversal() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(18);
+        binarySearchTree.insert(12);
+        binarySearchTree.insert(455);
+        binarySearchTree.insert(454);
+
+        List<Integer> expectedResult = List.of(1,5,10,12,18,454,455);
+
+        assertEquals(expectedResult,binarySearchTree.inOrderGetAllValues());
     }
 
 }

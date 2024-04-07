@@ -1,5 +1,8 @@
 package org.example.DSA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinarySearchTree {
     // TODO implement generics, equals, and hashcode functions
     TreeNode root;
@@ -73,6 +76,25 @@ public class BinarySearchTree {
 
         return root;
 
+    }
+
+    // Feels kind of weird having a public method that just calls a private recurs method, but this solves the public method
+    // being idempotent since we're mutating the state of the arraylist
+    public List<Integer> inOrderGetAllValues(){
+        List<Integer> result = new ArrayList<>();
+        TreeNode current = root;
+
+        return inOrderGetallValuesRecurs(result, root);
+    }
+
+    private List<Integer> inOrderGetallValuesRecurs(List<Integer> result, TreeNode current) {
+        if (current == null){
+            return result;
+        }
+        inOrderGetallValuesRecurs(result, current.left);
+        result.add(current.val);
+        inOrderGetallValuesRecurs(result, current.right);
+        return result;
     }
 
     private class TreeNode{
