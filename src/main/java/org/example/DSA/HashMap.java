@@ -14,11 +14,11 @@ public class HashMap {
     }
 
     public void put(int key, int value) {
-        int keyIndex = hash(key);
-
         if (size >= capacity / 2){
             rehash();
         }
+
+        int keyIndex = hash(key);
 
         while (true) {
             if (map[keyIndex] == null){
@@ -69,6 +69,7 @@ public class HashMap {
         Pair[] oldMap = Arrays.copyOf(map, capacity);
         capacity *= 2;
         map = new Pair[capacity];
+        size = 0;
         for(Pair pair : oldMap){
             if (pair != null){
                 put(pair.key, pair.value);
